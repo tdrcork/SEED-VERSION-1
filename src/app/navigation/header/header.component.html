@@ -1,115 +1,17 @@
-<mat-toolbar fxLayout="row" class="topnav">
+<mat-toolbar fxLayout
+  fxLayoutAlign="space-between center"
+  class="header"
+  color="primary">
 
-  <div fxFlex>
-    <img src="../../../assets/img/logo.png">
+  <div fxFlex routerLink="/">
+    <button mat-button>
+      <h1>CAMERONS SEED</h1>
+    </button>
   </div>
 
-  <div fxFlex="6 1 auto"></div>
+  <div fxFlex></div>
 
-  <button mat-button [matMenuTriggerFor]="servicesDropDown">
-    <mat-icon>keyboard_arrow_down</mat-icon>
-    <span>Services</span>
-  </button>
-
-  <button mat-button [matMenuTriggerFor]="resourcesDropDown">
-      <mat-icon>keyboard_arrow_down</mat-icon>
-      <span>Resources</span>
-  </button>
-
-  <button mat-button [matMenuTriggerFor]="contactDropDown">
-      <mat-icon>keyboard_arrow_down</mat-icon>
-      <span>Contact</span>
-  </button>
-
-  <mat-menu #resourcesDropDown="matMenu" [overlapTrigger]="false">
-    <button mat-menu-item>
-      <mat-icon>import_contacts</mat-icon>
-      <span>QuickBooks</span>
-    </button>
-    <button mat-menu-item>
-      <mat-icon>forum</mat-icon>
-      <span>Portal</span>
-    </button>
-    <button mat-menu-item>
-      <mat-icon>recent_actors</mat-icon>
-      <span>Donation Form</span>
-    </button>
-  </mat-menu>
-
-  <mat-menu #servicesDropDown="matMenu" [overlapTrigger]="false">
-      <button mat-menu-item [matMenuTriggerFor]="individualDropDown">
-        <mat-icon>person</mat-icon>
-        <span>Individual</span>
-      </button>
-      <button mat-menu-item [matMenuTriggerFor]="businessDropDown">
-        <mat-icon>supervisor_account</mat-icon>
-        <span>Business</span>
-      </button>
-  </mat-menu>
-
-  <mat-menu #individualDropDown="matMenu" [overlapTrigger]="false">
-    <button mat-menu-item>
-      <mat-icon>note</mat-icon>
-      <span>Tax Preperation</span>
-    </button>
-    <button mat-menu-item>
-      <mat-icon>note</mat-icon>
-      <span>Ammended Tax Returns</span>
-    </button>
-    <button mat-menu-item>
-      <mat-icon>note</mat-icon>
-      <span>Gift and Estate Returns</span>
-    </button>
-    <button mat-menu-item>
-      <mat-icon>note</mat-icon>
-      <span>Donation Deductions</span>
-    </button>
-  </mat-menu>
-
-  <mat-menu #businessDropDown="matMenu" [overlapTrigger]="false">
-    <button mat-menu-item>
-      <mat-icon>web</mat-icon>
-      <span>Accounting</span>
-    </button>
-    <button mat-menu-item>
-      <mat-icon>storage</mat-icon>
-      <span>Bookkeeping</span>
-    </button>
-    <button mat-menu-item>
-      <mat-icon>web_asset</mat-icon>
-      <span>Audit Representation</span>
-    </button>
-  </mat-menu>
-  
-  <mat-menu #contactDropDown="matMenu" [overlapTrigger]="false">
-    <button mat-menu-item>
-      <mat-icon>computer</mat-icon>
-      <span>Send Us An Email</span>
-    </button>
-
-    <button mat-menu-item>
-      <mat-icon>insert_invitation</mat-icon>
-      <span>Schedule A Meeting</span>
-    </button>
-
-    <button mat-menu-item>
-      <mat-icon>monetization_on</mat-icon>
-      <span>Pay Your Bill</span>
-    </button>
-  </mat-menu>
-
-
- <!--  <button mat-raised-button fxFlex 
-          fxFlexAlign="end end" 
-          fxFlexOffset="3%"
-          class="raised-link header-link">Services
-  </button>
- -->
-
-<!-- Pay Bill: <i class="material-icons thumbnail">monetization_on</i>
-Schedule Meeting: <i class="material-icons thumbnail">insert_invitation</i>
-Contact Us: <i class="material-icons thumbnail">monetization_on</i>
-Donation Form: <i class="material-icons thumbnail">download thing</i>
-
- -->
+  <button mat-button fxFlex="5" routerLink="/">Home</button>
+  <button mat-button fxFlex="5" routerLink="/signup">Sign Up</button>
+  <button mat-button fxFlex="5" routerLink="signin">Sign In</button>
 </mat-toolbar>

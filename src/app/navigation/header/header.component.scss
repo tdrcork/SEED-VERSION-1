@@ -1,30 +1,9 @@
-.topnav {
-    height: 5%;
-    width: 100%;
-    background: RGBA(255, 255, 255);
-/*     box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
- */    position: relative;
-    background-color:  white;
-    color: black;
-  }
-
-.logo-name {
-    margin: 0px;
-    margin-top: 4px;
-    text-align: center;
-    margin-bottom: 0px;
+.header {
+    height: 80px;
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+    margin: 0px 0px;
+    position: fixed;
+    z-index: 10;
+    top: 0;
 }
 
-.logo-words {
-    margin: 0px;
-    text-align: right;
-    position: relative;
-}
-
-.header-link {
-  color:  black;
-}
-
-mat-menu.mat-icon {
-    color: #0C71C3
-}

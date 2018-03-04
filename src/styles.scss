@@ -1,142 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
-/* * {
-  border: 1px solid black;
-  ICONS:
-  Syntax: <i class="material-icons thumbnail">text</i>
-  Business:  business
-  individual:  person
-  Contact:  "contacts", 'contact_mail', 'contact_phone', 'mail_outline'
-  Accounting:  content_paste(clipboard)
-  Amended Tax Returns:
-  Audit Representation:
-  Bookkeeping: folder_open(file folder)
-  Quickbooks:  
-  Business Tax Preperation:
-  Gift and Estate Tax Returns:
-  Donation Value Sheet:  assets/img/donated-item.png
-
-
-
-  What She Specifically Mentioned:
-  1:  Seperate by Business and Individual; Services
-  2:  Buy Quickbooks through her; Resources
-  3:  Donation Form; Resources
-  4:  Bookkeeping and Auditing; Services
-  5:  Mailing Address vs Office Address; Client Needs
-
-  Pay Bill: <i class="material-icons thumbnail">monetization_on</i>
-  Schedule Meeting: <i class="material-icons thumbnail">insert_invitation</i>
-  Contact Us: <i class="material-icons thumbnail">monetization_on</i>
-  Donation Form: <i class="material-icons thumbnail">download thing</i>
-  
-  Contact Us:
-  Pay Your Bill
-  Schedule A Meeting
-  Send us an Email
-
-  Our Services:  Drop Down, split: Business | Individual
-  Business:
-  Accounting
-  Bookkeeping
-  Audit Representation
-
-  Individual:
-  Tax Preperation
-  Ammended Tax Returns
-  Gift and Estate
-  Donation Deductions
-
-  Client Resources:
-  Donation Form:  PDF
-  Quickbooks:  Advertise
-  Portal:  https://proconnect.intuit.com/link/taxpayer/
-  Donated Value:  https://turbotax.intuit.com/personal-taxes/itsdeductible/
-  
-
-  Portal Website:  https://proconnect.intuit.com/link/taxpayer/
-  Donated Value Site:  https://turbotax.intuit.com/personal-taxes/itsdeductible/
-
-  building/business:  business
-  clipboard:  content_paste
-  calendar:  insert_invitation
-  plus sign:  add
-  money sign: monetization_on
-  file folder: folder_open
-  cloud sign:  cloud
-  computer: 'computer'
-  scanner: 'scanner'
-  keyboard: keyboard
-  smiley face: tag_faces
-  bike: directions_bike
-  run:  directions_run
-  wine: local_bar
-  walk: directions-walk
-  printer: local_printshop
-  man/women figure: wc
-  swim: pool
-  indidual person: person, person_outline
-  group(2) figures: group
-  satisfied face: sentiment_satisfied
-  profile/account: account_box, account_circle
-  build/wrench: build
-  copyright: copyright
-  credit card: credit_card
-  checkmark: done
-  house: home
-  info: 
-  print: print
-  reciept: receipt
-  setings/gear: settings
-  two people: supervisor_account
-  list: view_list
-  briefcase: work
-  bar graph: equalizer
-  website stuff?: web, web_asset
-  phone: call
-  key/security: vpn_key
-  couch: weekend
-} */
-
+@import "~@angular/material/theming";
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+$config: mat-typography-config();
 
 body {
   margin: 0 auto;
-  padding: 0;
-  background-color: white;
 }
 
-.raised-link {
-background-color: white;
-color: black;
+.billboard {
+  height: 800px;
+  padding: 25px 50px;
+  background-image: url("./assets/img/background.jpg");
 }
 
-.text-middle {
-  text-align: center;
-}
-
-.spacer {
-  height: 20px;
-}
-
-.jumbotron {
-background-color:  #0C71C3;
-height:  400px;
-margin: 0px auto;
-padding:  30px 250px;
-padding-bottom: 0px;
-color: white;
-}
-
-.thumbnail-link {
-  color: #0C71C3;
-  text-align: center;
-  align-content: center;
-  cursor: pointer;
-}
-
-.thumbnail {
-  font-size: 100px;
-  height: 100px;
-  width: 100px;
+.page-title {
+  margin-top: 80px;
+  height: 80px !important;
 }
 
