@@ -4,21 +4,26 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 
-import { Profile } from './profile.model';
+import { PlaceholderData } from './placeholder-data.model';
 import { AuthService } from '../user/auth.service';
-
+import { ConfigurationServicePlaceholders } from 'amazon-cognito-identity-js/node_modules/aws-sdk/lib/config_service_placeholders';
+/*
+Step 1:  Replace 'Placeholder' with the name of your actual Model
+Step 2:  Add your api_gateway endpoint
+ */
 @Injectable()
-export class ProfileService {
+export class RestService {
+  apiEndpoint = 'API_GATEWAY_ENDPOINT';
   dataEdited = new BehaviorSubject<boolean>(false);
   dataIsLoading = new BehaviorSubject<boolean>(false);
-  dataLoaded = new Subject<Profile[]>();
+  dataLoaded = new Subject<PlaceholderData[]>();
   dataLoadFailed = new Subject<boolean>();
-  userData: Profile;
+  userData: PlaceholderData;
   constructor(private http: Http,
               private authService: AuthService) {
   }
 
-  onStoreData(data: Profile) {
+  onStoreData(data: PlaceholderData) {
     this.dataLoadFailed.next(false);
     this.dataIsLoading.next(true);
     this.dataEdited.next(false);
@@ -27,7 +32,7 @@ export class ProfileService {
       if (err) {
         return;
       }
-      this.http.post('https://API_ID.execute-api.REGION.amazonaws.com/dev/compare-yourself', data, {
+      this.http.post('#{apiEndpoint}', data, {
         headers: new Headers({'Authorization': session.getIdToken().getJwtToken()})
       })
         .subscribe(
@@ -53,7 +58,7 @@ export class ProfileService {
       if (!all) {
         urlParam = 'single';
       }
-      this.http.get('https://API_ID.execute-api.REGION.amazonaws.com/dev/compare-yourself/' + urlParam + queryParam, {
+      this.http.get('#{apiEndpoint}' + urlParam + queryParam, {
         headers: new Headers({'Authorization': session.getIdToken().getJwtToken()})
       })
         .map(
@@ -84,7 +89,7 @@ export class ProfileService {
   onDeleteData() {
     this.dataLoadFailed.next(false);
     this.authService.getAuthenticatedUser().getSession((err, session) => {
-      this.http.delete('https://API_ID.execute-api.REGION.amazonaws.com/dev/compare-yourself/?accessToken=XXX', {
+      this.http.delete('#{apiEndpoint}/?accessToken=XXX', {
         headers: new Headers({'Authorization': session.getIdToken().getJwtToken()})
       })
         .subscribe(

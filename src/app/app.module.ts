@@ -1,25 +1,30 @@
+/* Base Angular Modules */
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-/* Base Angular Modules */
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, Routes } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
+
+/* Observables */
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Routes } from '@angular/router';
-import { AppRoutingModule } from './app-routing.module';
 
 /* Component Modules */
 import { AppComponent } from './app.component';
 import { SigninComponent } from './user/signin/signin.component';
 import { SignupComponent } from './user/signup/signup.component';
 import { HeaderComponent } from './navigation/header/header.component';
-import { HomeComponent } from './billboards/home/home.component';
+import { HomeComponent } from './pages/home/home.component';
 import { FooterComponent } from './navigation/footer/footer.component';
+import { ConfirmComponent } from './user/confirm/confirm.component';
+import { PlaceholderCreateComponent } from './api/placeholder-create/placeholder-create.component';
+
+/* Services */
 import { AuthService } from './user/auth.service';
+import { RestService } from './api/rest.service';
 
 /* Design Modules */
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -61,12 +66,18 @@ import {
   MatTooltipModule,
 } from '@angular/material';
 
-
-
 import 'hammerjs';
-import { ProfileComponent } from './user/profile/profile.component';
 
 /* Amazon AWS SDK imports */
+import {
+  CognitoUserPool,
+  CognitoUserAttribute,
+  CognitoUser,
+  AuthenticationDetails,
+  CognitoUserSession
+} from 'amazon-cognito-identity-js';
+
+
 
 @NgModule({
   declarations: [
@@ -76,7 +87,7 @@ import { ProfileComponent } from './user/profile/profile.component';
     HeaderComponent,
     HomeComponent,
     FooterComponent,
-    ProfileComponent,
+    ConfirmComponent
   ],
   imports: [
     BrowserModule,
@@ -117,9 +128,9 @@ import { ProfileComponent } from './user/profile/profile.component';
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
-  providers: [AuthService],
+  providers: [AuthService, RestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

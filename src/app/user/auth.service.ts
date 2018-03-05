@@ -17,8 +17,8 @@ import {
 
 /* Step 1:  create variable to hold your Cognito user data   */
 const POOL_DATA = {
-  UserPoolId: 'POOL_ID',
-  ClientId: 'APP_CLIENT_ID'
+  UserPoolId: 'USER_POOL_ID',
+  ClientId: 'CLIENT_ID'
 };
 const userPool = new CognitoUserPool(POOL_DATA);
 
@@ -36,7 +36,7 @@ export class AuthService {
   }
 
   /* step 3:  create the data that aws needs as paramaters using the method params
-  then you run the aws specific method that adds a user using these params, 
+  then you run the aws specific method that adds a user using these params,
   then you set the registeredUser variable*/
   signUp(username: string, email: string, password: string): void {
     /* step 1:  set current behavior */
@@ -61,7 +61,7 @@ export class AuthService {
     Use the method provided in amazon SDK to create these attributes */
     attrList.push(new CognitoUserAttribute(emailAttribute));
 
-    /* step 5:  call the method signUp from the amazon SDK on your user pool.  
+    /* step 5:  call the method signUp from the amazon SDK on your user pool.
     user the user in order to fill the paramaters required.   */
     userPool.signUp(user.username, user.password, attrList, null, (err, result) => {
       if (err) {
@@ -70,7 +70,7 @@ export class AuthService {
         return;
       }
 
-      /* step 6:  on success, you update the behavior and set the current registeredUser 
+      /* step 6:  on success, you update the behavior and set the current registeredUser
       to the user from cognito */
       this.authDidFail.next(false);
       this.authIsLoading.next(false);
@@ -90,7 +90,7 @@ export class AuthService {
       Pool: userPool
     };
 
-    /* create a local variable for a CognitoUser object with the paramater of 
+    /* create a local variable for a CognitoUser object with the paramater of
     the user data */
     const cognitUser = new CognitoUser(userData);
 
@@ -109,8 +109,8 @@ export class AuthService {
     });
   }
 
-  /* Step 5:  Create an object for a users auth data, and one for user and userpool.  
-  use aws method to create auth stuff based on the auth data.  make an aws user variable 
+  /* Step 5:  Create an object for a users auth data, and one for user and userpool.
+  use aws method to create auth stuff based on the auth data.  make an aws user variable
   based on your original user object.   */
   signIn(username: string, password: string): void {
     this.authIsLoading.next(true);
@@ -139,6 +139,7 @@ export class AuthService {
       }
     });
     this.authStatusChanged.next(true); // create user with cognito data
+    this.router.navigate(['/']);
     return;
   }
 

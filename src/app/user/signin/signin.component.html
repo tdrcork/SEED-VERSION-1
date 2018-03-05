@@ -1,21 +1,15 @@
-<mat-toolbar fxLayout
-  class="page-title"
-  color="primary">
-  <h1>Sign In</h1>
-  <div fxFlex></div>
+<mat-toolbar *ngIf="!didFail" fxLayout fxLayoutAlign="center center" class="page-title" color="primary">
+  <h1 class="mat-headline">Sign In</h1>
 </mat-toolbar>
 
-<div *ngIf="didFail">
-    <div>
-      <div class="alert">Something went wrong, please try again!</div>
-    </div>
-</div>
+<mat-toolbar *ngIf="didFail" fxLayout fxLayoutAlign="center center" class="page-title" color="warn">
+  <h1 class="mat-headline">Something went wrong, please try again!</h1>
+</mat-toolbar>
 
-<div>
-  <form (ngSubmit)="onSubmit()" #usrForm="ngForm" fxLayout fxLayoutAlign="center stretch">
-    <div fxFlex="1 1 auto"></div>
+<form (ngSubmit)="onSubmit()" #usrForm="ngForm" fxLayout fxLayoutAlign="center stretch">
+  <div fxFlex="1 1 auto"></div>
 
-    <div fxFlex>
+  <div fxFlex>
     <div fxLayout="column" fxLayoutAlign="center stretch">
       <mat-form-field fxFlex>
         <input matInput
@@ -26,7 +20,6 @@
           placeholder="username or email"
           required>
       </mat-form-field>
-
       <mat-form-field fxFlex>
         <input matInput
           type="password"
@@ -36,15 +29,11 @@
           placeholder="password"
           required>
       </mat-form-field>
-
-    <button mat-raised-button color="secondary" type="submit"
-            [disabled]="(usrForm.value.password !== usrForm.value.confirmPassword) || usrForm.invalid">Submit
-    </button>
-  </div>
+      <button mat-raised-button type="submit">Submit</button>
+    </div>
   </div>
 
   <div fxFlex="1 1 auto"></div>
-  </form>
+</form>
 
-  <div class="loader" *ngIf="isLoading"></div>
-</div>
+<div class="spacer"></div>

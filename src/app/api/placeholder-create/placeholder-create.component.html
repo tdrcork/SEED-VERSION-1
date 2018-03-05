@@ -1,0 +1,32 @@
+<div fxLayout fxLayoutAlign="center center">
+  <form (ngSubmit)="onSubmit()" #createForm="ngForm">
+    <mat-form-field>
+      <input matInput
+        type="string"
+        id="sentence"
+        name="sentence"
+        ngModel
+        Placeholder="sentence"
+        required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput
+        type="number"
+        id="five"
+        name="five"
+        ngModel
+        placeholder="5"
+        required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput
+        type="boolean"
+        id="truefalse"
+        name="truefalse"
+        ngModel
+        placeholder="True or False"
+        required>
+    </mat-form-field>
+    <button mat-raised-button type="submit" [disabled]="createForm.invalid">Submit</button>
+  </form>
+</div>

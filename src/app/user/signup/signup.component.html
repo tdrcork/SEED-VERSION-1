@@ -1,21 +1,15 @@
-<mat-toolbar fxLayout
-  class="page-title"
-  color="primary">
-  <h1>Sign Up</h1>
-  <div fxFlex></div>
+<mat-toolbar *ngIf="!didFail" fxLayout fxLayoutAlign="center center" class="page-title" color="primary">
+  <h1 class="mat-headline">Sign Up</h1>
 </mat-toolbar>
 
-<div *ngIf="didFail">
-    <div>
-      <div class="alert">Something went wrong, please try again!</div>
-    </div>
-</div>
+<mat-toolbar *ngIf="didFail" fxLayout fxLayoutAlign="center center" class="page-title" color="warn">
+    <h1 class="mat-headline">Something went wrong, please try again!</h1>
+</mat-toolbar>
 
-<div>
-  <form (ngSubmit)="onSubmit()" #usrForm="ngForm" fxLayout fxLayoutAlign="center stretch">
-    <div fxFlex="1 1 auto"></div>
+<form (ngSubmit)="onSubmit()" #usrForm="ngForm" fxLayout fxLayoutAlign="center stretch">
+  <div fxFlex></div>
 
-    <div fxFlex>
+  <div fxFlex>
     <div fxLayout="column" fxLayoutAlign="center stretch">
       <mat-form-field fxFlex>
         <input matInput
@@ -33,8 +27,7 @@
           name="email"
           ngModel
           placeholder="email address"
-          required
-          email>
+          required>
       </mat-form-field>
       <mat-form-field fxFlex>
         <input matInput
@@ -54,57 +47,20 @@
           placeholder="confirm password"
           required>
       </mat-form-field>
-
-    <div *ngIf="usrForm.value.password !== usrForm.value.confirmPassword">Passwords do not match!</div>
-    <button mat-raised-button color="secondary" type="submit"
-            [disabled]="(usrForm.value.password !== usrForm.value.confirmPassword) || usrForm.invalid">Submit
-    </button>
-  </div>
-  </div>
-
-  <div fxFlex="1 1 auto"></div>
-  </form>
-
-  <div class="loader" *ngIf="isLoading"></div>
-</div>
-
-
-<!--   <div fxFlex *ngIf="!confirmUser">
-    <div class="col-xs-12 col-sm-10 col-md-6 cold-sm-offset-1 col-md-offset-3 text-center">
-      <button class="btn btn-default" (click)="onDoConfirm()">Confirm User</button>
+      <div *ngIf="usrForm.value.password !== usrForm.value.confirmPassword">Passwords do not match!</div>
+      <button
+        mat-raised-button
+        type="submit"
+        [disabled]="(usrForm.value.password !== usrForm.value.confirmPassword) || usrForm.invalid">
+        Submit
+      </button>
     </div>
   </div>
 
-  <div fxFlex *ngIf="confirmUser">
-    <div class="col-xs-12 col-sm-10 col-md-6 cold-sm-offset-1 col-md-offset-3">
-      <form #confirmForm="ngForm" (ngSubmit)="onConfirm(confirmForm.value)">
-        <div class="form-group">
-          <label
-            for="usrName"
-            class="control-label">Username</label>
-          <input
-            type="text"
-            id="usrName"
-            name="usrName"
-            ngModel
-            class="form-control text-center"
-            required>
-        </div>
-        <div class="form-group">
-          <label
-            for="validationCode"
-            class="control-label">Validation Code</label>
-          <input
-            type="text"
-            id="validationCode"
-            name="validationCode"
-            ngModel
-            class="form-control text-center"
-            required>
-        </div>
-        <button class="btn btn-primary" type="submit" [disabled]="confirmForm.invalid">Confirm your Account</button>
-      </form>
-      <div class="loader" *ngIf="isLoading"></div>
-    </div>
-  </div> -->
+  <div fxFlex></div>
+</form>
+
+<div class="loader" *ngIf="isLoading"></div>
+
+<div class="spacer"></div>
 

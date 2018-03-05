@@ -11,10 +11,19 @@ body {
   height: 800px;
   padding: 25px 50px;
   background-image: url("./assets/img/background.jpg");
+  margin-bottom:  50px;
 }
 
 .page-title {
   margin-top: 80px;
-  height: 80px !important;
+  height: 100px !important;
+  margin-bottom: 20px;
 }
 
+.spacer {
+  height: 700px;
+}
+
+.card-info {
+  height: 500px;
+}
