@@ -1,27 +1,46 @@
-# ProfileWebsite
+# SEED
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.1.
+# Important Note:  
+This Repo is Only for the Front End. i.e. an angular 5 SPA.  This does include the client side logic for REST calls to API Gateway endpoints/Lamda Functions with Cognito Authentication.
 
-## Development server
+# The Example website's sign up and sign in pages will NOT work
+For User Authentication or any kind of REST call to work, you must first configure an aws account and place the correct credentials in the appropriate places.  These places are currently filled with placeholders.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# Technologies Used
+-Angular 5
+-Angular Material
+-Flex Layout
+-Serverless Framework
+-AWS S3
+-AWS Lamda
+-AWS API Gateway
+-AWS DynamoDB
+-AWS Cloudfront
+-AWS Cognito
 
-## Code scaffolding
+# What The Front End Contains
+The Front End is an Angular SPA with the following:
+-Header/Footer
+-Landing Page
+-Sign Up Page
+-Sign In Page
+-Email Confirmation Page
+-Authentication Service
+-Simple REST API Service
+-example page that uses rest service to post to a db
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# User Authentication
+User authentication is taken care of by an auth service created within the app/user directory.  The service uses amazon cognitos SDK and is used by the rest service in order to protect the end points.
 
-## Build
+# Back End/API
+The API itself does not exist in this repo. There is a service for storing and retrieving user specific data in app/rest.  Once again, this will not work unless you add the correct credentials.  
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+You can find the serverless rest skelaton app here:  https://github.com/tdrcork/serverless-seed-api
 
-## Running unit tests
+# S3 Deployment Script
+This also does not exist on this repo. 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Really Important But I put it last anyway:
+I was only able to put this entire thing together because of the wonderful examples and tutorials I have been able to find online.  My s3 deployment script and skelaton rest api are almost exact copies of those found in the serverless examples page: https://github.com/serverless/examples
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Much of my angular application is based off of the application that was created in the Udemy Course "AWS Serverless API's & Apps - A Complete Introduction" by Maximilian Schwarzmuller.  Link here:  https://www.udemy.com/aws-serverless-a-complete-introduction/learn/v4/overview
