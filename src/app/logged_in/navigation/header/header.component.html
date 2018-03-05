@@ -1,0 +1,25 @@
+<mat-toolbar fxLayout
+  fxLayoutAlign="space-between center"
+  class="header"
+  color="primary">
+
+  <div fxFlex routerLink="/">
+    <button mat-button><h1>CAMERONS SEED(IN PROGRESS)</h1></button>
+  </div>
+
+  <div fxFlex></div>
+
+  <button *ngIf="!isAuthenticated" routerLinkActive="active" mat-button routerLink="/signup" fxFlex="5" >
+    Sign Up</button>
+
+  <button *ngIf="!isAuthenticated" routerLinkActive="active" mat-button routerLink="/signin" fxFlex="5" >
+    Sign In</button>
+
+  <button *ngIf="isAuthenticated" routerLinkActive="active" mat-button routerLink="/" fxFlex="5" >
+    Placeholder</button>
+
+  <button *ngIf="isAuthenticated" routerLinkActive="active" mat-button (click)="onLogout()" fxFlex="5">
+    Logout</button>
+
+  <a href="https://github.com/tdrcork/seed" mat-raised-button color="accent">View Source</a>
+</mat-toolbar>

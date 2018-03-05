@@ -25,6 +25,12 @@ import { PlaceholderCreateComponent } from './api/placeholder-create/placeholder
 /* Services */
 import { AuthService } from './user/auth.service';
 import { RestService } from './api/rest.service';
+/* import {UserRegistrationService} from './services/user-registration.service';
+import {UserParametersService} from './services/user-parameters.service';
+import {UserLoginService} from './services/user-login.service';
+import {CognitoUtil} from './services/cognito.service';
+import {AwsUtil} from './services/aws.service';
+import {DynamoDBService} from './services/ddb.service'; */
 
 /* Design Modules */
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -76,6 +82,17 @@ import {
   AuthenticationDetails,
   CognitoUserSession
 } from 'amazon-cognito-identity-js';
+
+
+/* Logged Out Components */
+/* 
+import {LoginComponent} from './logged_out/user/login/login.component';
+import {RegisterComponent} from './logged_out/user/register/registration.component';
+import {ForgotPassword2Component, ForgotPasswordStep1Component} from './logged_out/user/forgot/forgotPassword.component';
+import {LogoutComponent, RegistrationConfirmationComponent} from './logged_out/user/confirm/confirmRegistration.component';
+import {ResendCodeComponent} from './logged_out/user/resend/resendCode.component';
+import {NewPasswordComponent} from './logged_out/user/newpassword/newpassword.component';
+import { MFAComponent } from './logged_out/user/mfa/mfa.component'; */
 
 
 

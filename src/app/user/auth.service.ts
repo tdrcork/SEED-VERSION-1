@@ -139,7 +139,7 @@ export class AuthService {
       }
     });
     this.authStatusChanged.next(true); // create user with cognito data
-    this.router.navigate(['/']);
+    this.router.navigate(['/signin']);
     return;
   }
 
